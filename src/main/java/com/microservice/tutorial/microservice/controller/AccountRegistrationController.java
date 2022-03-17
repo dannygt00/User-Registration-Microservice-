@@ -19,10 +19,15 @@ public class AccountRegistrationController {
     @Autowired
     AccountCrudRepository accountCrudRepository;
 
-    @GetMapping("")
+    @GetMapping("/registration_form")
     public String viewRegistrationPage(Model model) {
         model.addAttribute("account", new Account());
         return "registration_form";
+    }
+
+    @GetMapping("")
+    public String viewHomePage() {
+        return "index";
     }
 
     @PostMapping("/process_register")
