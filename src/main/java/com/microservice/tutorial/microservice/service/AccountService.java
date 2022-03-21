@@ -12,12 +12,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class AccountService {
 
-    private final AccountCrudRepository accountCrudRepository;
-
     @Autowired
-    public AccountService(AccountCrudRepository accountCrudRepository) {
-        this.accountCrudRepository = accountCrudRepository;
-    }
+    private AccountCrudRepository accountCrudRepository;
 
     public void addAccount(Account account) {
         accountCrudRepository.save(account);
