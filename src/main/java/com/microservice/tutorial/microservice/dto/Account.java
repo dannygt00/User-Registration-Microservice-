@@ -48,6 +48,7 @@ public class Account {
         this.mailAddress = mailAddress;
         this.accountType = accountType;
         this.minBalance = minBalance;
+
     }
 
     public Account(int accountNum, String firstName, String lastName, String dob, int ssn, String email,
@@ -63,6 +64,34 @@ public class Account {
         this.mailAddress = mailAddress;
         this.accountType = accountType;
         this.minBalance = minBalance;
+
+    }
+
+    public Account(String firstName, String lastName, String dob, int ssn, String email, long mobileNumber,
+            String homeAddress, String mailAddress, String accountType) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = dob;
+        this.ssn = ssn;
+        this.email = email;
+        this.mobileNumber = mobileNumber;
+        this.homeAddress = homeAddress;
+        this.mailAddress = mailAddress;
+        this.accountType = accountType;
+
+        switch (this.accountType) {
+            case "savings":
+                this.minBalance = 200;
+                break;
+            case "checkings":
+                this.minBalance = 300;
+                break;
+            case "cd":
+                this.minBalance = 2000;
+                break;
+            default:
+                this.minBalance = 0;
+        }
     }
 
 }

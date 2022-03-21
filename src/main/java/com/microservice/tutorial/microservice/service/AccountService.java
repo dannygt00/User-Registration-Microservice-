@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.microservice.tutorial.microservice.dto.Account;
+import com.microservice.tutorial.microservice.dto.AccountRegistration;
+import com.microservice.tutorial.microservice.exception.ResourceNotFoundException;
 import com.microservice.tutorial.microservice.repository.AccountCrudRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +23,11 @@ public class AccountService {
 
     public Account getAccount(int id) {
         try {
-            Account foundAcc = accountCrudRepository.findByAccountNum(id);
-            return foundAcc;
+            return accountCrudRepository.findByAccountNum(id);
         } catch (Exception e) {
-            System.out.println("Account with given ID does not exist");
-            return null;
+            throw new ResourceNotFoundException("Account", "AccountNum", id);
         }
+
     }
 
     public List<Account> getAccounts() {
@@ -45,4 +46,40 @@ public class AccountService {
             return false;
         }
     }
+
+    public Account updateAccount(int accountNum, AccountRegistration accountInputForm) {
+
+        Account account = getAccount(accountNum);
+        if (null != accountInputForm.getAccountType()) {
+            account.setAccountType(accountInputForm.getAccountType());
+        }
+        if (null != accountInputForm.getDob()) {
+            account.setDob(accountInputForm.getDob());
+        }
+        if (null != accountInputForm.getEmail()) {
+            account.setEmail(accountInputForm.getEmail());
+        }
+        if (null != accountInputForm.getFirstName()) {
+            account.setFirstName(accountInputForm.getFirstName());
+        }
+        if (null != accountInputForm.getLastName()) {
+            account.setLastName(accountInputForm.getLastName());
+        }
+        if (null != accountInputForm.getHomeAddress()) {
+            account.setHomeAddress(accountInputForm.getHomeAddress());
+        }
+        if (null != accountInputForm.getMailAddress()) {
+            account.setMailAddress(accountInputForm.getMailAddress());
+        }
+        if (accountInputForm.getMobileNumber() != 0) {
+            account.setMobileNumber(accountInputForm.getMobileNumber());
+        }
+        if (accountInputForm.getSsn() != 0) {
+            account.setSsn(accountInputForm.getSsn());
+        }
+
+        Account updatedAccount = accountCrudRepository.save(account);
+        return updatedAccount;
+    }
+
 }

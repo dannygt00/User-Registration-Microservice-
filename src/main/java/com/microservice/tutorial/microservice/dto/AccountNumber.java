@@ -9,6 +9,7 @@ public class AccountNumber {
     private int accountNum;
 
     public AccountNumber(int accountNum) {
+        super();
         this.accountNum = accountNum;
     }
 }
