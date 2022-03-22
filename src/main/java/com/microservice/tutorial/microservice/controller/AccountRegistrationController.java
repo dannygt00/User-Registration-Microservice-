@@ -68,6 +68,6 @@ public class AccountRegistrationController {
     public void updateAccount(@PathVariable(value = "accountNum") int accountNum,
             @RequestBody AccountRegistration accountInputForm, @RequestHeader String authorization) {
         log.info("In Update Account");
-        Account updatedAccount = accountService.updateAccount(accountNum, accountInputForm);
+        accountService.updateAccount(accountNum, accountInputForm);
     }
 }
