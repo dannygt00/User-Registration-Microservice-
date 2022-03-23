@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.microservice.tutorial.microservice.dto.Account;
-import com.microservice.tutorial.microservice.dto.AccountRegistration;
 import com.microservice.tutorial.microservice.exception.ResourceNotFoundException;
 import com.microservice.tutorial.microservice.repository.AccountCrudRepository;
 
@@ -47,7 +46,7 @@ public class AccountService {
         }
     }
 
-    public Account updateAccount(int accountNum, AccountRegistration accountInputForm) {
+    public Account updateAccount(int accountNum, Account accountInputForm) {
 
         Account account = getAccount(accountNum);
         if (null != accountInputForm.getAccountType()) {

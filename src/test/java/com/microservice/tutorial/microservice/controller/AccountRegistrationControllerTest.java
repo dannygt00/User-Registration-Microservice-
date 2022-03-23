@@ -49,19 +49,4 @@ public class AccountRegistrationControllerTest {
         assertEquals(accountService.getAccounts().size(), 3);
 
     }
-
-    @Test
-    void testGetAccounts() {
-
-    }
-
-    @Test
-    void testProcessRegistration() {
-
-    }
-
-    @Test
-    void testUpdateAccount() {
-
-    }
 }
