@@ -46,39 +46,4 @@ public class AccountService {
         }
     }
 
-    public Account updateAccount(int accountNum, Account accountInputForm) {
-
-        Account account = getAccount(accountNum);
-        if (null != accountInputForm.getAccountType()) {
-            account.setAccountType(accountInputForm.getAccountType());
-        }
-        if (null != accountInputForm.getDob()) {
-            account.setDob(accountInputForm.getDob());
-        }
-        if (null != accountInputForm.getEmail()) {
-            account.setEmail(accountInputForm.getEmail());
-        }
-        if (null != accountInputForm.getFirstName()) {
-            account.setFirstName(accountInputForm.getFirstName());
-        }
-        if (null != accountInputForm.getLastName()) {
-            account.setLastName(accountInputForm.getLastName());
-        }
-        if (null != accountInputForm.getHomeAddress()) {
-            account.setHomeAddress(accountInputForm.getHomeAddress());
-        }
-        if (null != accountInputForm.getMailAddress()) {
-            account.setMailAddress(accountInputForm.getMailAddress());
-        }
-        if (accountInputForm.getMobileNumber() != 0) {
-            account.setMobileNumber(accountInputForm.getMobileNumber());
-        }
-        if (accountInputForm.getSsn() != 0) {
-            account.setSsn(accountInputForm.getSsn());
-        }
-
-        Account updatedAccount = accountCrudRepository.save(account);
-        return updatedAccount;
-    }
-
 }

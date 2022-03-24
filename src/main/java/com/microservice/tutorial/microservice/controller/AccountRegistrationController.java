@@ -36,7 +36,7 @@ public class AccountRegistrationController {
     }
 
     // Displays home page
-    @GetMapping("/")
+    @GetMapping("/index")
     public String viewHomePage() {
         log.info("At home page");
         return "index";
@@ -82,11 +82,4 @@ public class AccountRegistrationController {
         return "registration_success";
     }
 
-    // Updates account using JSON input
-    @PutMapping(value = "/accounts/{accountNum}")
-    public void updateAccount(@PathVariable(value = "accountNum") int accountNum,
-            @RequestBody Account accountInputForm) {
-        log.info("In Update Account");
-        accountService.updateAccount(accountNum, accountInputForm);
-    }
 }

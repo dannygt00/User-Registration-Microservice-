@@ -79,19 +79,6 @@ public class Account {
         this.mailAddress = mailAddress;
         this.accountType = accountType;
 
-        switch (this.accountType) {
-            case "savings":
-                this.minBalance = 200;
-                break;
-            case "checkings":
-                this.minBalance = 300;
-                break;
-            case "cd":
-                this.minBalance = 2000;
-                break;
-            default:
-                this.minBalance = 0;
-        }
     }
 
 }
